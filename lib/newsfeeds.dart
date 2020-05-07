@@ -1,4 +1,3 @@
-
 import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
@@ -113,8 +112,7 @@ class News {
       title: json['title'] as String,
       description: json['description'] as String,
       url: json['url'] as String,
-      image:json['urlToImage'] as String,
-
+      imgurl:json['urlToImage'] as String,
     );
   }
 }
@@ -129,12 +127,12 @@ class NewsList extends StatelessWidget {
     return ListView.builder(
       itemCount: news.length,
       itemBuilder: (context, index) {
-        String image=(news[index].imgurl!=null)?news[index].imgurl:'https://cdn4.vectorstock.com/i/1000x1000/37/53/bite-apple-sign-orange-icon-on-black-background-vector-13393753.jpg';
+       // String image=(news[index].imgurl!=null)?news[index].imgurl:'https://cdn4.vectorstock.com/i/1000x1000/37/53/bite-apple-sign-orange-icon-on-black-background-vector-13393753.jpg';
         return new Card(
           color: Color(0xFF292929),
           child: new ListTile(
             leading:
-            Image.network(image),
+            Image.network(news[index].imgurl,),
             title: Text(news[index].title,style: TextStyle(color: Color(0xFFFFA31A),),),
 
             onTap: () {
@@ -150,4 +148,3 @@ class NewsList extends StatelessWidget {
       },
     );
   }
-}
