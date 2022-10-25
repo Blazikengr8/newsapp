@@ -148,3 +148,4 @@ class NewsList extends StatelessWidget {
       },
     );
   }
+}
